@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const navLinks = ["Platform", "Industries", "Network", "Insights", "About"];
+const navLinks = ["Platform", "Industries", "Network", "Products", "About"];
 
 export default function About() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -24,7 +24,7 @@ export default function About() {
             {navLinks.map((link) => (
               <Link
                 key={link}
-                to={link === "About" ? "/about" : "#"}
+                to={link === "About" ? "/about" : link === "Products" ? "/products" : "#"}
                 className="text-ink/70 transition hover:text-ink"
               >
                 {link}
@@ -35,7 +35,7 @@ export default function About() {
           {/* Desktop Button */}
           <div className="hidden md:flex items-center gap-2 md:gap-3">
             <Link to="/partner" className="rounded-full bg-ink px-4 md:px-5 py-2 text-sm md:text-base font-semibold text-white shadow-soft hover:bg-ink/90 transition">
-              Become a partner
+              Contact Us
             </Link>
           </div>
 
@@ -58,7 +58,7 @@ export default function About() {
               {navLinks.map((link) => (
                 <Link
                   key={link}
-                  to={link === "About" ? "/about" : "#"}
+                  to={link === "About" ? "/about" : link === "Products" ? "/products" : "#"}
                   className="block w-full text-left px-4 py-3 text-ink/70 hover:text-ink hover:bg-ink/5 rounded-lg transition"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -177,7 +177,7 @@ export default function About() {
             to="/partner"
             className="inline-block rounded-full bg-ocean px-8 py-3 text-sm md:text-base font-semibold text-white shadow-soft transition hover:bg-ocean/90"
           >
-            Become a partner
+            Contact Us
           </Link>
         </div>
       </main>

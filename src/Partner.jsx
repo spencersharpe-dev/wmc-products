@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const navLinks = ["Platform", "Industries", "Network", "Insights", "About"];
+const navLinks = ["Platform", "Industries", "Network", "Products", "About"];
 
 export default function Partner() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -24,7 +24,7 @@ export default function Partner() {
             {navLinks.map((link) => (
               <Link
                 key={link}
-                to={link === "About" ? "/about" : "#"}
+                to={link === "About" ? "/about" : link === "Products" ? "/products" : "#"}
                 className="text-ink/70 transition hover:text-ink"
               >
                 {link}
@@ -35,7 +35,7 @@ export default function Partner() {
           {/* Desktop Button */}
           <div className="hidden md:flex items-center gap-2 md:gap-3">
             <Link to="/partner" className="rounded-full bg-ink px-4 md:px-5 py-2 text-sm md:text-base font-semibold text-white shadow-soft hover:bg-ink/90 transition">
-              Become a partner
+              Contact Us
             </Link>
           </div>
 
@@ -58,7 +58,7 @@ export default function Partner() {
               {navLinks.map((link) => (
                 <Link
                   key={link}
-                  to={link === "About" ? "/about" : "#"}
+                  to={link === "About" ? "/about" : link === "Products" ? "/products" : "#"}
                   className="block w-full text-left px-4 py-3 text-ink/70 hover:text-ink hover:bg-ink/5 rounded-lg transition"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -76,7 +76,7 @@ export default function Partner() {
       <main className="mx-auto max-w-4xl px-4 md:px-6 py-12 md:py-16">
         <div className="text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-display uppercase leading-tight text-ink">
-            Become a Partner
+            CONTACT US
           </h1>
           <p className="mt-4 text-base md:text-lg text-ink/70">
             Join our network of leading distributors and contractors.
