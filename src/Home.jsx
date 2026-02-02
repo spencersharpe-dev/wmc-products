@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const navLinks = ["Platform", "Industries", "Network", "Products", "About"];
+const navLinks = ["Platform", "Industries", "Vendors", "Products", "About"];
 
 const heroStats = [
   { label: "Distribution centers", value: "240+" },
@@ -99,7 +99,7 @@ export default function Home() {
             {navLinks.map((link) => (
               <Link
                 key={link}
-                to={link === "About" ? "/about" : link === "Products" ? "/products" : "#"}
+                to={link === "About" ? "/about" : link === "Products" ? "/products" : link === "Vendors" ? "/vendors" : "#"}
                 className="text-ink/70 transition hover:text-ink"
               >
                 {link}
@@ -133,7 +133,7 @@ export default function Home() {
               {navLinks.map((link) => (
                 <Link
                   key={link}
-                  to={link === "About" ? "/about" : link === "Products" ? "/products" : "#"}
+                  to={link === "About" ? "/about" : link === "Products" ? "/products" : link === "Vendors" ? "/vendors" : "#"}
                   className="block w-full text-left px-4 py-3 text-ink/70 hover:text-ink hover:bg-ink/5 rounded-lg transition"
                   onClick={() => setMobileMenuOpen(false)}
                 >
