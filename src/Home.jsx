@@ -168,7 +168,7 @@ export default function Home() {
         </div>
 
         {/* Stats at bottom */}
-        <div className="absolute bottom-4 md:bottom-8 left-0 right-0 z-10">
+        <div className="absolute bottom-24 md:bottom-28 left-0 right-0 z-10">
           <div className="mx-auto grid max-w-4xl grid-cols-1 sm:grid-cols-3 gap-3 md:gap-6 px-4 md:px-6 text-center text-white">
             {heroStats.map((stat) => (
               <div key={stat.label} className="backdrop-blur-sm bg-white/10 rounded-xl md:rounded-2xl p-3 md:p-4">
@@ -177,6 +177,22 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Wave at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          <svg
+            viewBox="0 0 1440 150"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-auto"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0 60C80 50 160 55 240 70C320 85 400 100 480 100C560 100 640 90 720 80C800 70 880 70 960 80C1040 90 1120 100 1200 100C1280 100 1360 80 1440 60V150H0Z"
+              fill="#f0f4f8"
+            />
+          </svg>
         </div>
       </header>
 
