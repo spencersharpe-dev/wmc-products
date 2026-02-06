@@ -7,32 +7,38 @@ const vendorsData = [
   {
     id: 1,
     name: "Koster",
-    logo: "/Koster_product_image.png"
+    logo: "/Koster_product_image.png",
+    url: "https://www.kosterusa.com/us_en/"
   },
   {
     id: 2,
     name: "Lucas",
-    logo: "/lucas_vendor_image.png"
+    logo: "/lucas_vendor_image.png",
+    url: "https://rmlucas.com/"
   },
   {
     id: 3,
     name: "Ameripolish",
-    logo: "/ameripolish_vendor_image.jpg"
+    logo: "/ameripolish_vendor_image_new.JPG",
+    url: "https://ameripolish.com/"
   },
   {
     id: 4,
     name: "Evonik",
-    logo: "/evonik_vendor_image.jpg"
+    logo: "/evonik_vendor_image.jpg",
+    url: "https://www.evonik.com/en.html"
   },
   {
     id: 5,
     name: "ASC",
-    logo: "/asc_vendor_image.png"
+    logo: "/asc_vendor_image.png",
+    url: "https://asc-bm.com/"
   },
   {
     id: 6,
     name: "SET",
-    logo: "/set_vendor_image.jpg"
+    logo: "/set_vendor_image.jpg",
+    url: "https://setmaterials.com/"
   },
   {
     id: 7,
@@ -42,12 +48,14 @@ const vendorsData = [
   {
     id: 8,
     name: "Neptune",
-    logo: "/neptune_vendor_image.jpg"
+    logo: "/neptune_vendor_image.jpg",
+    url: "https://www.neptunecoatings.com/"
   },
   {
     id: 9,
-    name: "ElectroPlumb Solutions",
-    logo: "https://via.placeholder.com/200x200/e67e22/ffffff?text=ElectroPlumb"
+    name: "Manta",
+    logo: "/manta_vendor_image.png",
+    url: "https://mantaroof.com/"
   },
   {
     id: 10,
@@ -168,19 +176,37 @@ export default function Vendors() {
 
         {/* Vendors Grid */}
         <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {vendorsData.map((vendor) => (
-            <div
-              key={vendor.id}
-              className="rounded-2xl border border-ink/10 bg-white p-6 text-center shadow-card hover:shadow-lg transition-shadow"
-            >
-              <img
-                src={vendor.logo}
-                alt={vendor.name}
-                className="w-full h-32 object-contain mb-4"
-              />
-              <h3 className="text-lg font-semibold text-ink">{vendor.name}</h3>
-            </div>
-          ))}
+          {vendorsData.map((vendor) => {
+            const CardContent = (
+              <>
+                <img
+                  src={vendor.logo}
+                  alt={vendor.name}
+                  className="w-full h-32 object-contain mb-4"
+                />
+                <h3 className="text-lg font-semibold text-ink">{vendor.name}</h3>
+              </>
+            );
+
+            return vendor.url ? (
+              <a
+                key={vendor.id}
+                href={vendor.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl border border-ink/10 bg-white p-6 text-center shadow-card hover:shadow-lg transition-shadow cursor-pointer"
+              >
+                {CardContent}
+              </a>
+            ) : (
+              <div
+                key={vendor.id}
+                className="rounded-2xl border border-ink/10 bg-white p-6 text-center shadow-card hover:shadow-lg transition-shadow"
+              >
+                {CardContent}
+              </div>
+            );
+          })}
         </div>
       </main>
 
