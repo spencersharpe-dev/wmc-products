@@ -6,43 +6,43 @@ const navLinks = ["Platform", "Industries", "Vendors", "Products", "About"];
 const vendorsData = [
   {
     id: 1,
-    name: "BuildPro Supply Co.",
-    logo: "https://via.placeholder.com/200x200/2c3e50/ffffff?text=BuildPro"
+    name: "Koster",
+    logo: "/Koster_product_image.png"
   },
   {
     id: 2,
-    name: "Industrial Materials Group",
-    logo: "https://via.placeholder.com/200x200/34495e/ffffff?text=IMG"
+    name: "Lucas",
+    logo: "/lucas_vendor_image.png"
   },
   {
     id: 3,
-    name: "SafetyFirst Equipment",
-    logo: "https://via.placeholder.com/200x200/27ae60/ffffff?text=SafetyFirst"
+    name: "Ameripolish",
+    logo: "/ameripolish_vendor_image.jpg"
   },
   {
     id: 4,
-    name: "ProTool Manufacturing",
-    logo: "https://via.placeholder.com/200x200/e74c3c/ffffff?text=ProTool"
+    name: "Evonik",
+    logo: "/evonik_vendor_image.jpg"
   },
   {
     id: 5,
-    name: "Concrete Solutions Inc",
-    logo: "https://via.placeholder.com/200x200/3498db/ffffff?text=Concrete"
+    name: "ASC",
+    logo: "/asc_vendor_image.png"
   },
   {
     id: 6,
-    name: "PowerDrill Systems",
-    logo: "https://via.placeholder.com/200x200/f39c12/ffffff?text=PowerDrill"
+    name: "SET",
+    logo: "/set_vendor_image.jpg"
   },
   {
     id: 7,
-    name: "Apex Construction Supply",
-    logo: "https://via.placeholder.com/200x200/9b59b6/ffffff?text=Apex"
+    name: "Wetsuit",
+    logo: "/wetsuit_vendor_image.jpg"
   },
   {
     id: 8,
-    name: "Steel & Iron Works",
-    logo: "https://via.placeholder.com/200x200/1abc9c/ffffff?text=Steel"
+    name: "Neptune",
+    logo: "/neptune_vendor_image.jpg"
   },
   {
     id: 9,
