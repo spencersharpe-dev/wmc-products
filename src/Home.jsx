@@ -152,11 +152,11 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
 
         {/* Hero Text */}
-        <div className="absolute top-16 md:top-20 bottom-0 left-0 right-0 flex flex-col items-center justify-center z-10 px-4">
+        <div className="absolute top-16 md:top-20 bottom-24 left-0 right-0 flex flex-col items-center justify-center z-10 px-4">
           <img
-            src="/2.png"
+            src="/logo_clean_magic (1).png"
             alt="WMC Logo"
-            className="h-36 md:h-48 lg:h-60 w-auto object-contain mb-4"
+            className="h-56 md:h-72 lg:h-96 w-auto object-contain mb-4"
           />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center drop-shadow-lg">
             WATER MITIGATION CONCEPTS
