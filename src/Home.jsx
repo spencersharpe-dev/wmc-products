@@ -149,14 +149,23 @@ export default function Home() {
 
         {/* Full-screen Hero Image */}
         <img
-          className="absolute inset-0 h-full w-full object-contain"
-          src="/hero-image.jpg"
-          alt="Hero image"
+          className="absolute top-16 md:top-20 left-0 right-0 h-[calc(100%-4rem)] md:h-[calc(100%-5rem)] w-full object-cover object-center"
+          src="/background-hero-image_upscayl_8x.jpg"
+          alt="Hero background"
         />
 
-        {/* Optional overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
 
+        {/* Hero Text */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center drop-shadow-lg">
+            Water Mitigation Concepts
+          </h1>
+          <p className="mt-4 text-xl md:text-2xl lg:text-3xl text-white text-center drop-shadow-md">
+            Waterproofing & Concrete Repair Specialists
+          </p>
+        </div>
 
         {/* Stats at bottom */}
         <div className="absolute bottom-4 md:bottom-8 left-0 right-0 z-10">
