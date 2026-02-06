@@ -3,12 +3,6 @@ import { Link } from 'react-router-dom';
 
 const navLinks = ["Platform", "Industries", "Vendors", "Products", "About"];
 
-const heroStats = [
-  { label: "Distribution centers", value: "240+" },
-  { label: "Pro partners", value: "38k" },
-  { label: "Annual orders", value: "9.6M" }
-];
-
 const solutionCards = [
   {
     title: "Smart procurement",
@@ -158,26 +152,23 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
 
         {/* Hero Text */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-4">
+        <div className="absolute top-16 md:top-20 bottom-0 left-0 right-0 flex flex-col items-center justify-center z-10 px-4">
+          <img
+            src="/2.png"
+            alt="WMC Logo"
+            className="h-36 md:h-48 lg:h-60 w-auto object-contain mb-4"
+          />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center drop-shadow-lg">
             WATER MITIGATION CONCEPTS
           </h1>
-          <p className="mt-4 text-xl md:text-2xl lg:text-3xl text-white text-center drop-shadow-md">
-            Waterproofing & Concrete Repair Specialists
+          <p className="mt-4 text-xl md:text-2xl lg:text-3xl font-bold text-white text-center drop-shadow-md">
+            CONCRETE & WATERPROOFING BUILDING ENVELOPE SPECIALIST
+          </p>
+          <p className="mt-2 text-xl md:text-2xl lg:text-3xl font-bold text-white text-center drop-shadow-md">
+            OFFERING WATERPROOFING SOLUTIONS FROM OUR TRUSTED VENDORS
           </p>
         </div>
 
-        {/* Stats at bottom */}
-        <div className="absolute bottom-24 md:bottom-28 left-0 right-0 z-10">
-          <div className="mx-auto grid max-w-4xl grid-cols-1 sm:grid-cols-3 gap-3 md:gap-6 px-4 md:px-6 text-center text-white">
-            {heroStats.map((stat) => (
-              <div key={stat.label} className="backdrop-blur-sm bg-white/10 rounded-xl md:rounded-2xl p-3 md:p-4">
-                <p className="text-xl md:text-2xl font-semibold drop-shadow">{stat.value}</p>
-                <p className="text-xs md:text-sm text-white/80 drop-shadow">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Wave at bottom */}
         <div className="absolute bottom-0 left-0 right-0 z-20">
