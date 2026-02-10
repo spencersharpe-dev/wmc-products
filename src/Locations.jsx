@@ -3,98 +3,42 @@ import { Link } from 'react-router-dom';
 
 const navLinks = ["Platform", "Locations", "Vendors", "Products", "About"];
 
-const vendorsData = [
+const locationsData = [
   {
     id: 1,
-    name: "Koster",
-    logo: "/Koster_product_image.png",
-    url: "https://www.kosterusa.com/us_en/"
+    name: "Southern California",
+    address: "1234 Construction Way",
+    city: "Anaheim, CA 92801",
+    phone: "(714) 923-1027",
+    description: "Headquarters - Serving Orange County, Los Angeles, and surrounding areas"
   },
   {
     id: 2,
-    name: "Lucas",
-    logo: "/lucas_vendor_image.png",
-    url: "https://rmlucas.com/"
+    name: "San Diego",
+    address: "5678 Industrial Blvd",
+    city: "San Diego, CA 92101",
+    phone: "(619) 555-0123",
+    description: "Serving San Diego County and Imperial Valley"
   },
   {
     id: 3,
-    name: "Ameripolish",
-    logo: "/ameripolish_vendor_image_new.JPG",
-    url: "https://ameripolish.com/"
+    name: "Inland Empire",
+    address: "9012 Commerce Dr",
+    city: "Riverside, CA 92507",
+    phone: "(951) 555-0456",
+    description: "Serving Riverside and San Bernardino Counties"
   },
   {
     id: 4,
-    name: "Evonik",
-    logo: "/evonik_vendor_image.jpg",
-    url: "https://www.evonik.com/en.html"
-  },
-  {
-    id: 5,
-    name: "ASC",
-    logo: "/asc_vendor_image.png",
-    url: "https://asc-bm.com/"
-  },
-  {
-    id: 6,
-    name: "SET",
-    logo: "/set_vendor_image.jpg",
-    url: "https://setmaterials.com/"
-  },
-  {
-    id: 7,
-    name: "Wetsuit",
-    logo: "/wetsuit_vendor_image.jpg"
-  },
-  {
-    id: 8,
-    name: "Neptune",
-    logo: "/neptune_vendor_image.jpg",
-    url: "https://www.neptunecoatings.com/"
-  },
-  {
-    id: 9,
-    name: "Manta",
-    logo: "/manta_vendor_image.png",
-    url: "https://mantaroof.com/"
-  },
-  {
-    id: 10,
-    name: "Precision Measuring Co",
-    logo: "https://via.placeholder.com/200x200/16a085/ffffff?text=Precision"
-  },
-  {
-    id: 11,
-    name: "Heavy Equipment Depot",
-    logo: "https://via.placeholder.com/200x200/c0392b/ffffff?text=Heavy"
-  },
-  {
-    id: 12,
-    name: "Masonry Masters",
-    logo: "https://via.placeholder.com/200x200/8e44ad/ffffff?text=Masonry"
-  },
-  {
-    id: 13,
-    name: "Ladder & Scaffold Systems",
-    logo: "https://via.placeholder.com/200x200/2980b9/ffffff?text=Ladder"
-  },
-  {
-    id: 14,
-    name: "Paint & Coating Specialists",
-    logo: "https://via.placeholder.com/200x200/d35400/ffffff?text=Paint"
-  },
-  {
-    id: 15,
-    name: "Industrial Hardware Hub",
-    logo: "https://via.placeholder.com/200x200/7f8c8d/ffffff?text=Hardware"
-  },
-  {
-    id: 16,
-    name: "BuildRight Distributors",
-    logo: "https://via.placeholder.com/200x200/2c3e50/ffffff?text=BuildRight"
+    name: "Central California",
+    address: "3456 Valley Center Rd",
+    city: "Fresno, CA 93721",
+    phone: "(559) 555-0789",
+    description: "Serving the Central Valley region"
   }
 ];
 
-export default function Vendors() {
+export default function Locations() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   return (
@@ -173,49 +117,61 @@ export default function Vendors() {
       {/* Add padding top to account for fixed navbar */}
       <div className="pt-16">
 
-      <main className="mx-auto max-w-7xl px-4 md:px-6 py-12 md:py-16">
+      <main className="mx-auto max-w-6xl px-4 md:px-6 py-12 md:py-16">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-display uppercase leading-tight text-ink">
-            Our Vendors
+            Our Locations
           </h1>
           <p className="mt-4 text-base md:text-lg text-ink/70">
-            Trusted partners in construction supply
+            Serving California with quality waterproofing solutions
           </p>
         </div>
 
-        {/* Vendors Grid */}
-        <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {vendorsData.map((vendor) => {
-            const CardContent = (
-              <>
-                <img
-                  src={vendor.logo}
-                  alt={vendor.name}
-                  className="w-full h-32 object-contain mb-4"
-                />
-                <h3 className="text-lg font-semibold text-ink">{vendor.name}</h3>
-              </>
-            );
-
-            return vendor.url ? (
-              <a
-                key={vendor.id}
-                href={vendor.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-2xl border border-ink/10 bg-white p-6 text-center shadow-card hover:shadow-lg transition-shadow cursor-pointer"
-              >
-                {CardContent}
-              </a>
-            ) : (
-              <div
-                key={vendor.id}
-                className="rounded-2xl border border-ink/10 bg-white p-6 text-center shadow-card hover:shadow-lg transition-shadow"
-              >
-                {CardContent}
+        {/* Locations Grid */}
+        <div className="grid gap-6 md:grid-cols-2">
+          {locationsData.map((location) => (
+            <div
+              key={location.id}
+              className="rounded-2xl border border-ink/10 bg-white p-6 md:p-8 shadow-card hover:shadow-lg transition-shadow"
+            >
+              <h3 className="text-xl md:text-2xl font-semibold text-ink mb-3">{location.name}</h3>
+              <p className="text-ink/70 mb-4">{location.description}</p>
+              <div className="space-y-2 text-sm">
+                <p className="text-ink/80">
+                  <span className="font-medium">Address:</span> {location.address}
+                </p>
+                <p className="text-ink/80">{location.city}</p>
+                <a
+                  href={`tel:${location.phone.replace(/[^0-9]/g, '')}`}
+                  className="inline-block text-ocean hover:text-ocean/80 font-medium transition"
+                >
+                  {location.phone}
+                </a>
               </div>
-            );
-          })}
+            </div>
+          ))}
+        </div>
+
+        {/* Map Section Placeholder */}
+        <div className="mt-12 rounded-2xl border border-ink/10 bg-white p-6 md:p-8 shadow-card">
+          <h2 className="text-2xl md:text-3xl font-semibold text-ink mb-4 text-center">Service Area</h2>
+          <div className="bg-ink/5 rounded-xl h-64 md:h-96 flex items-center justify-center">
+            <p className="text-ink/50 text-lg">Map coming soon</p>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold text-ink mb-4">Need Help Finding Us?</h2>
+          <p className="text-base md:text-lg text-ink/70 mb-6 max-w-2xl mx-auto">
+            Contact us today and our team will help you find the nearest location to serve your waterproofing needs.
+          </p>
+          <Link
+            to="/partner"
+            className="inline-block rounded-full bg-ocean px-8 py-3 text-sm md:text-base font-semibold text-white shadow-soft transition hover:bg-ocean/90"
+          >
+            Contact Us
+          </Link>
         </div>
       </main>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const navLinks = ["Platform", "Industries", "Vendors", "Products", "About"];
+const navLinks = ["Platform", "Locations", "Vendors", "Products", "About"];
 
 export default function Partner() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -24,7 +24,7 @@ export default function Partner() {
             {navLinks.map((link) => (
               <Link
                 key={link}
-                to={link === "About" ? "/about" : link === "Products" ? "/products" : link === "Vendors" ? "/vendors" : "#"}
+                to={link === "About" ? "/about" : link === "Products" ? "/products" : link === "Vendors" ? "/vendors" : link === "Locations" ? "/locations" : "#"}
                 className="text-ink/70 transition hover:text-ink"
               >
                 {link}
@@ -34,12 +34,12 @@ export default function Partner() {
 
           {/* Desktop Button */}
           <div className="hidden md:flex items-center gap-4 md:gap-5">
-            <a href="tel:714-923-1027" className="text-ink/70 hover:text-ink transition font-medium">
-              714-923-1027
-            </a>
             <Link to="/partner" className="rounded-full bg-ink px-4 md:px-5 py-2 text-sm md:text-base font-semibold text-white shadow-soft hover:bg-ink/90 transition">
               Contact Us
             </Link>
+            <a href="tel:714-923-1027" className="text-ink/70 hover:text-ink transition font-medium">
+              Have any questions? (714)-923-1027
+            </a>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -61,7 +61,7 @@ export default function Partner() {
               {navLinks.map((link) => (
                 <Link
                   key={link}
-                  to={link === "About" ? "/about" : link === "Products" ? "/products" : link === "Vendors" ? "/vendors" : "#"}
+                  to={link === "About" ? "/about" : link === "Products" ? "/products" : link === "Vendors" ? "/vendors" : link === "Locations" ? "/locations" : "#"}
                   className="block w-full text-left px-4 py-3 text-ink/70 hover:text-ink hover:bg-ink/5 rounded-lg transition"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -72,7 +72,7 @@ export default function Partner() {
                 href="tel:714-923-1027"
                 className="block w-full text-left px-4 py-3 text-ink font-medium hover:bg-ink/5 rounded-lg transition"
               >
-                714-923-1027
+                Have any questions? (714)-923-1027
               </a>
             </div>
           </div>
@@ -89,6 +89,16 @@ export default function Partner() {
           </h1>
           <p className="mt-4 text-base md:text-lg text-ink/70">
             Join our network of leading distributors and contractors.
+          </p>
+          <p className="mt-4 text-base md:text-lg font-semibold text-ink/70">
+            OR
+          </p>
+          <p className="mt-2 text-base md:text-lg text-ink/70">
+            Feel free to give us a call at{' '}
+            <a href="tel:714-923-1027" className="text-ocean hover:text-ocean/80 font-medium transition">
+              (714)-923-1027
+            </a>
+            !
           </p>
         </div>
 

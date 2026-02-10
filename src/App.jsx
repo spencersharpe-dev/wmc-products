@@ -4,6 +4,7 @@ import Partner from './Partner';
 import About from './About';
 import Products from './Products';
 import Vendors from './Vendors';
+import Locations from './Locations';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/products" element={<Products />} />
         <Route path="/vendors" element={<Vendors />} />
+        <Route path="/locations" element={<Locations />} />
       </Routes>
     </BrowserRouter>
   );
