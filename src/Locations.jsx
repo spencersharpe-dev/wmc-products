@@ -11,7 +11,7 @@ const locationsData = [
     address: "1518 North Endeavor Lane, Unit A",
     city: "Anaheim, CA 92801",
     phone: "(714) 923-1027",
-    description: "Headquarters - Serving all of Southern, Central, and Northern California",
+    description: "Headquarters",
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=1518+North+Endeavor+Lane+Unit+A+Anaheim+CA+92801"
   },
   {
