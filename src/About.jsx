@@ -100,7 +100,7 @@ export default function About() {
             <h2 className="text-2xl md:text-3xl font-semibold text-ink mb-4">Our Mission</h2>
             <p className="text-base md:text-lg text-ink/70 leading-relaxed">
               At WMC products, our mission is to revolutionize the construction industry by creating
-              seamless connections between contractors, distributors, and suppliers. We believe that
+              seamless connections between contractors, consultants, and architects. We believe that
               every project deserves access to reliable materials, transparent pricing, and efficient
               logistics. Through our innovative platform, we're eliminating delays, reducing waste,
               and empowering teams to focus on what they do best—building the future.
@@ -136,8 +136,7 @@ export default function About() {
               <div>
                 <h3 className="text-xl font-semibold text-ink mb-2">Innovation</h3>
                 <p className="text-ink/70">
-                  We continuously invest in technology that makes sourcing and logistics smarter,
-                  faster, and more sustainable.
+                  We remain committed to delivering advanced waterproofing and restoration solutions that protect structures for the long term.
                 </p>
               </div>
               <div>
