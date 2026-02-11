@@ -98,7 +98,6 @@ export default function Partner() {
             <a href="tel:714-923-1027" className="text-ocean hover:text-ocean/80 font-medium transition">
               (714)-923-1027
             </a>
-            !
           </p>
         </div>
 

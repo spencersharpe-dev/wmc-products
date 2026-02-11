@@ -151,10 +151,14 @@ export default function Home() {
       <header className="relative h-screen w-full">
 
         {/* Full-screen Hero Image */}
-        <img
+        <video
           className="absolute top-16 md:top-20 left-0 right-0 h-[calc(100%-4rem)] md:h-[calc(100%-5rem)] w-full object-cover object-center"
-          src="/back_ground_of_card_blue_mc_upscayl_8x.jpg"
-          alt="Hero background"
+          src="/water_droplet_video.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-label="Hero background video"
         />
 
         {/* Overlay for better text readability */}
@@ -443,7 +447,7 @@ export default function Home() {
               <span>products</span>
             </div>
             <p className="mt-4 text-sm text-white/70">
-              Building the connected infrastructure for modern construction teams.
+              Concrete & waterproofing building envelope specialist
             </p>
           </div>
           <div>
