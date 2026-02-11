@@ -129,7 +129,7 @@ export default function Locations() {
             Our Locations
           </h1>
           <p className="mt-4 text-base md:text-lg text-ink/70">
-            Serving California with quality waterproofing solutions
+            Serving California, Arizona, and Nevada with quality waterproofing solutions
           </p>
         </div>
 

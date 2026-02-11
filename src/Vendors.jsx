@@ -44,7 +44,8 @@ const vendorsData = [
   {
     id: 7,
     name: "Wetsuit",
-    logo: "/wetsuit_vendor_image.jpg"
+    logo: "/wetsuit_vendor_image.jpg",
+    url: "https://www.neptunecoatings.com/"
   },
   {
     id: 8,
@@ -146,7 +147,7 @@ export default function Vendors() {
             Our Vendors
           </h1>
           <p className="mt-4 text-base md:text-lg text-ink/70">
-            Trusted partners in construction supply
+            Trusted Partners in Building Envelope Systems
           </p>
         </div>
 
@@ -154,14 +155,11 @@ export default function Vendors() {
         <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {vendorsData.map((vendor) => {
             const CardContent = (
-              <>
-                <img
-                  src={vendor.logo}
-                  alt={vendor.name}
-                  className="w-full h-40 object-contain mb-6"
-                />
-                <h3 className="text-xl md:text-2xl font-semibold text-ink">{vendor.name}</h3>
-              </>
+              <img
+                src={vendor.logo}
+                alt={vendor.name}
+                className="w-full h-40 object-contain"
+              />
             );
 
             return vendor.url ? (
