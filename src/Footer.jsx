@@ -32,10 +32,10 @@ export default function Footer() {
             Company
           </p>
           <ul className="mt-4 space-y-2 text-sm text-white/70">
+            <li><Link to="/vendors" className="hover:text-white transition">Vendors</Link></li>
+            <li><Link to="/products" className="hover:text-white transition">Products</Link></li>
+            <li><Link to="/locations" className="hover:text-white transition">Locations</Link></li>
             <li><Link to="/about" className="hover:text-white transition">About</Link></li>
-            <li>Leadership</li>
-            <li>Newsroom</li>
-            <li>Careers</li>
           </ul>
         </div>
         <div>
