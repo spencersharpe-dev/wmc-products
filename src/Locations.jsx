@@ -20,7 +20,7 @@ const locationsData = [
     address: "Address Line 1",
     city: "City, State ZIP",
     phone: "(602)-282-0310",
-    description: "Description for location 2",
+    description: "Got this info from old site",
     mapsUrl: ""
   },
   {
@@ -29,7 +29,7 @@ const locationsData = [
     address: "Address Line 1",
     city: "City, State ZIP",
     phone: "(619)-784-3108",
-    description: "Description for location 3",
+    description: "Got this info from old site",
     mapsUrl: ""
   },
   {
