@@ -8,16 +8,16 @@ const locationsData = [
   {
     id: 1,
     name: "Southern California",
-    address: "1518 North Endeavor Lane, Unit A",
+    address: "1518 North Endeavor Place, Unit A",
     city: "Anaheim, CA 92801",
     phone: "(714) 923-1027",
     description: "Headquarters",
-    mapsUrl: "https://www.google.com/maps/search/?api=1&query=1518+North+Endeavor+Lane+Unit+A+Anaheim+CA+92801"
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=1518+North+Endeavor+Place+Unit+A+Anaheim+CA+92801"
   },
   {
     id: 2,
     name: "Northern California",
-    address: "23285 Eichler St. Suite C",
+    address: "23285 Eichler St., Suite C",
     city: "Hayward, CA 94545",
     phone: "(714) 923-1027",
     description: "Stocking Warehouse",
@@ -26,7 +26,7 @@ const locationsData = [
   {
     id: 3,
     name: "San Diego/ Poway",
-    address: "13651 Danielson St. Suite F",
+    address: "13651 Danielson St., Suite F",
     city: "Poway, CA 92064",
     phone: "(714) 923-1027",
     description: "Stocking Warehouse",
@@ -35,7 +35,7 @@ const locationsData = [
   {
     id: 4,
     name: "Arizona/ Phoenix",
-    address: "1250 E. Hadley St. Suite 1",
+    address: "1250 E. Hadley St., Suite 1",
     city: "Phoenix, AZ 85034",
     phone: "(602) 282-0310",
     description: "Stocking Warehouse",

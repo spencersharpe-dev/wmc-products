@@ -267,10 +267,10 @@ export default function Home() {
       <section className="relative bg-white">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/construction-site-home-page.png')" }}
+          style={{ backgroundImage: "url('/construction-site-2.jpeg')" }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-white/55" aria-hidden="true" />
+        <div className="absolute inset-0 bg-white/35" aria-hidden="true" />
         <div className="relative mx-auto max-w-6xl px-6 py-16">
           <div>
             <p className="text-lg font-semibold uppercase tracking-[0.2em] text-ink/60">
