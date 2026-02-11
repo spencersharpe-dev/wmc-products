@@ -337,7 +337,6 @@ export default function Home() {
                   className="max-h-full w-full object-contain"
                 />
               </div>
-              <h3 className="mt-4 text-center text-lg font-semibold">{item.title}</h3>
             </div>
           ))}
         </div>
