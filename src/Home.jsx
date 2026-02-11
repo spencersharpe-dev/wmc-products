@@ -6,18 +6,18 @@ const navLinks = ["Home", "Vendors", "Locations", "About"];
 
 const solutionCards = [
   {
-    title: "Waterproofing",
+    title: "WATERPROOFING",
     body: "Eliminating leaks and structural water damage with high-quality waterproofing solutions you can rely on.",
     tone: "bg-surf"
   },
   {
-    title: "Concrete Restoration",
+    title: "CONCRETE RESTORATION",
     body: "Protect and restore concrete structures with durable solutions engineered for strength and longevity.",
     tone: "bg-tide"
   },
   {
-    title: "Vendor performance",
-    body: "Scorecard suppliers with visibility across fulfillment, quality, and returns.",
+    title: "ROOF COATINGS",
+    body: "High-performance silicone and elastomeric roof coating systems designed to protect, seal, extend and restore aging roofing systems for commercial roofing.",
     tone: "bg-surf"
   }
 ];
