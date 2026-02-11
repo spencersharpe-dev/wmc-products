@@ -16,19 +16,19 @@ const locationsData = [
   },
   {
     id: 2,
-    name: "Location 2",
+    name: "Phoenix",
     address: "Address Line 1",
     city: "City, State ZIP",
-    phone: "(000) 000-0000",
+    phone: "(602)-282-0310",
     description: "Description for location 2",
     mapsUrl: ""
   },
   {
     id: 3,
-    name: "Location 3",
+    name: "San Diego",
     address: "Address Line 1",
     city: "City, State ZIP",
-    phone: "(000) 000-0000",
+    phone: "(619)-784-3108",
     description: "Description for location 3",
     mapsUrl: ""
   },
