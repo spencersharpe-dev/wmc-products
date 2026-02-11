@@ -7,34 +7,11 @@ const locationsData = [
   {
     id: 1,
     name: "Southern California",
-    address: "1234 Construction Way",
+    address: "1518 North Endeavor Lane, Unit A",
     city: "Anaheim, CA 92801",
     phone: "(714) 923-1027",
-    description: "Headquarters - Serving Orange County, Los Angeles, and surrounding areas"
-  },
-  {
-    id: 2,
-    name: "San Diego",
-    address: "5678 Industrial Blvd",
-    city: "San Diego, CA 92101",
-    phone: "(619) 555-0123",
-    description: "Serving San Diego County and Imperial Valley"
-  },
-  {
-    id: 3,
-    name: "Inland Empire",
-    address: "9012 Commerce Dr",
-    city: "Riverside, CA 92507",
-    phone: "(951) 555-0456",
-    description: "Serving Riverside and San Bernardino Counties"
-  },
-  {
-    id: 4,
-    name: "Central California",
-    address: "3456 Valley Center Rd",
-    city: "Fresno, CA 93721",
-    phone: "(559) 555-0789",
-    description: "Serving the Central Valley region"
+    description: "Headquarters - Serving all of Southern, Central, and Northern California",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=1518+North+Endeavor+Lane+Unit+A+Anaheim+CA+92801"
   }
 ];
 
@@ -128,22 +105,28 @@ export default function Locations() {
         </div>
 
         {/* Locations Grid */}
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="flex justify-center">
           {locationsData.map((location) => (
             <div
               key={location.id}
-              className="rounded-2xl border border-ink/10 bg-white p-6 md:p-8 shadow-card hover:shadow-lg transition-shadow"
+              className="rounded-2xl border border-ink/10 bg-white p-6 md:p-8 shadow-card hover:shadow-lg transition-shadow max-w-md w-full"
             >
               <h3 className="text-xl md:text-2xl font-semibold text-ink mb-3">{location.name}</h3>
               <p className="text-ink/70 mb-4">{location.description}</p>
               <div className="space-y-2 text-sm">
-                <p className="text-ink/80">
-                  <span className="font-medium">Address:</span> {location.address}
-                </p>
-                <p className="text-ink/80">{location.city}</p>
+                <p className="font-medium text-ink/80">Address:</p>
+                <a
+                  href={location.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-ocean hover:text-ocean/80 transition"
+                >
+                  <p>{location.address}</p>
+                  <p>{location.city}</p>
+                </a>
                 <a
                   href={`tel:${location.phone.replace(/[^0-9]/g, '')}`}
-                  className="inline-block text-ocean hover:text-ocean/80 font-medium transition"
+                  className="inline-block text-ocean hover:text-ocean/80 font-medium transition mt-2"
                 >
                   {location.phone}
                 </a>
