@@ -152,7 +152,7 @@ export default function Home() {
 
         {/* Full-screen Hero Image */}
         <video
-          className="absolute top-16 md:top-20 left-0 right-0 h-[calc(100%-4rem)] md:h-[calc(100%-5rem)] w-full object-cover object-center"
+          className="absolute top-16 md:top-20 left-0 right-0 h-[calc(100%-4rem)] md:h-[calc(100%-5rem)] w-full object-cover object-[50%_70%]"
           src="/water_droplet_video.mp4"
           autoPlay
           loop
