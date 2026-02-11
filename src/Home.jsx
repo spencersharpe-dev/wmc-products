@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const navLinks = ["Platform", "Vendors", "Products", "Locations", "About"];
+const navLinks = ["Home", "Vendors", "Products", "Locations", "About"];
 
 const solutionCards = [
   {
@@ -93,7 +93,7 @@ export default function Home() {
             {navLinks.map((link) => (
               <Link
                 key={link}
-                to={link === "About" ? "/about" : link === "Products" ? "/products" : link === "Vendors" ? "/vendors" : link === "Locations" ? "/locations" : "#"}
+                to={link === "Home" ? "/" : link === "About" ? "/about" : link === "Products" ? "/products" : link === "Vendors" ? "/vendors" : link === "Locations" ? "/locations" : "#"}
                 className="text-ink/70 transition hover:text-ink"
               >
                 {link}
@@ -130,7 +130,7 @@ export default function Home() {
               {navLinks.map((link) => (
                 <Link
                   key={link}
-                  to={link === "About" ? "/about" : link === "Products" ? "/products" : link === "Vendors" ? "/vendors" : link === "Locations" ? "/locations" : "#"}
+                  to={link === "Home" ? "/" : link === "About" ? "/about" : link === "Products" ? "/products" : link === "Vendors" ? "/vendors" : link === "Locations" ? "/locations" : "#"}
                   className="block w-full text-left px-4 py-3 text-ink/70 hover:text-ink hover:bg-ink/5 rounded-lg transition"
                   onClick={() => setMobileMenuOpen(false)}
                 >
