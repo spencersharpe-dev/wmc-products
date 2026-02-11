@@ -56,41 +56,6 @@ const vendorsData = [
     name: "Manta",
     logo: "/manta_vendor_image.png",
     url: "https://mantaroof.com/"
-  },
-  {
-    id: 10,
-    name: "Precision Measuring Co",
-    logo: "https://via.placeholder.com/200x200/16a085/ffffff?text=Precision"
-  },
-  {
-    id: 11,
-    name: "Heavy Equipment Depot",
-    logo: "https://via.placeholder.com/200x200/c0392b/ffffff?text=Heavy"
-  },
-  {
-    id: 12,
-    name: "Masonry Masters",
-    logo: "https://via.placeholder.com/200x200/8e44ad/ffffff?text=Masonry"
-  },
-  {
-    id: 13,
-    name: "Ladder & Scaffold Systems",
-    logo: "https://via.placeholder.com/200x200/2980b9/ffffff?text=Ladder"
-  },
-  {
-    id: 14,
-    name: "Paint & Coating Specialists",
-    logo: "https://via.placeholder.com/200x200/d35400/ffffff?text=Paint"
-  },
-  {
-    id: 15,
-    name: "Industrial Hardware Hub",
-    logo: "https://via.placeholder.com/200x200/7f8c8d/ffffff?text=Hardware"
-  },
-  {
-    id: 16,
-    name: "BuildRight Distributors",
-    logo: "https://via.placeholder.com/200x200/2c3e50/ffffff?text=BuildRight"
   }
 ];
 
