@@ -149,16 +149,16 @@ export default function Vendors() {
         </div>
 
         {/* Vendors Grid */}
-        <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {vendorsData.map((vendor) => {
             const CardContent = (
               <>
                 <img
                   src={vendor.logo}
                   alt={vendor.name}
-                  className="w-full h-32 object-contain mb-4"
+                  className="w-full h-40 object-contain mb-6"
                 />
-                <h3 className="text-lg font-semibold text-ink">{vendor.name}</h3>
+                <h3 className="text-xl md:text-2xl font-semibold text-ink">{vendor.name}</h3>
               </>
             );
 
@@ -168,14 +168,14 @@ export default function Vendors() {
                 href={vendor.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-2xl border border-ink/10 bg-white p-6 text-center shadow-card hover:shadow-lg transition-shadow cursor-pointer"
+                className="rounded-2xl border border-ink/10 bg-white p-8 text-center shadow-card hover:shadow-lg transition-shadow cursor-pointer"
               >
                 {CardContent}
               </a>
             ) : (
               <div
                 key={vendor.id}
-                className="rounded-2xl border border-ink/10 bg-white p-6 text-center shadow-card hover:shadow-lg transition-shadow"
+                className="rounded-2xl border border-ink/10 bg-white p-8 text-center shadow-card hover:shadow-lg transition-shadow"
               >
                 {CardContent}
               </div>
