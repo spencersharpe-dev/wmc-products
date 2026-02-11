@@ -146,7 +146,7 @@ export default function Vendors() {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-display uppercase leading-tight text-ink">
             Our Vendors
           </h1>
-          <p className="mt-4 text-base md:text-lg text-ink/70">
+          <p className="mt-4 text-2xl text-ink/70">
             Trusted Partners in Building Envelope Systems
           </p>
         </div>

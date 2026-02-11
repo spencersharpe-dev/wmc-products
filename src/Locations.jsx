@@ -167,7 +167,7 @@ export default function Locations() {
         {/* CTA Section */}
         <div className="mt-20 text-center">
           <h2 className="text-2xl md:text-3xl font-semibold text-ink mb-4">Need Help Finding Us?</h2>
-          <p className="text-base md:text-lg text-ink/70 mb-6 max-w-2xl mx-auto">
+          <p className="text-[1.3rem] text-ink/70 mb-6 max-w-2xl mx-auto">
             Contact us today and our team will help you find the nearest location to serve your waterproofing needs.
           </p>
           <Link

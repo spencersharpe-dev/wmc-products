@@ -101,8 +101,8 @@ export default function Partner() {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-display uppercase leading-tight text-ink">
             CONTACT US
           </h1>
-          <p className="mt-4 text-base md:text-lg text-ink/70">
-            Join our network of leading distributors and contractors.
+          <p className="mt-4 text-[1.3rem] text-ink/70">
+            Join our network of leading contractors, consultants, and architects.
           </p>
           <p className="mt-4 text-base md:text-lg font-semibold text-ink/70">
             OR
@@ -237,21 +237,6 @@ export default function Partner() {
               </Link>
             </div>
           </form>
-        </div>
-
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-ink/10 bg-white p-6 text-center shadow-card">
-            <p className="text-2xl font-semibold">38k+</p>
-            <p className="mt-2 text-sm text-ink/60">Active partners</p>
-          </div>
-          <div className="rounded-2xl border border-ink/10 bg-white p-6 text-center shadow-card">
-            <p className="text-2xl font-semibold">240+</p>
-            <p className="mt-2 text-sm text-ink/60">Distribution centers</p>
-          </div>
-          <div className="rounded-2xl border border-ink/10 bg-white p-6 text-center shadow-card">
-            <p className="text-2xl font-semibold">9.6M</p>
-            <p className="mt-2 text-sm text-ink/60">Annual orders</p>
-          </div>
         </div>
       </main>
 
