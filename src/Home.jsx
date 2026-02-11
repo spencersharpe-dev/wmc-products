@@ -273,7 +273,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-white/35" aria-hidden="true" />
         <div className="relative mx-auto max-w-6xl px-6 py-16">
           <div>
-            <p className="text-lg font-semibold uppercase tracking-[0.2em] text-ink/60">
+            <p className="text-2xl font-semibold uppercase tracking-[0.2em] text-ink/60">
               About Us
             </p>
             <h2 className="mt-4 text-center text-4xl font-semibold">

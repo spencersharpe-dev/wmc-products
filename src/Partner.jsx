@@ -4,19 +4,137 @@ import Footer from './Footer';
 
 const navLinks = ["Home", "Vendors", "Locations", "About"];
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqedeovo";
+
 export default function Partner() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [termsAccepted, setTermsAccepted] = React.useState(false);
   const [showTermsError, setShowTermsError] = React.useState(false);
 
-  const handleSubmit = (e) => {
+  // Form field states
+  const [formData, setFormData] = React.useState({
+    firstName: '',
+    lastName: '',
+    company: '',
+    email: '',
+    phone: '',
+    companyType: '',
+    message: '',
+    website: '' // Honeypot field
+  });
+
+  // Form submission states
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitSuccess, setSubmitSuccess] = React.useState(false);
+  const [submitError, setSubmitError] = React.useState('');
+  const [validationErrors, setValidationErrors] = React.useState({});
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    // Clear validation error when user starts typing
+    if (validationErrors[name]) {
+      setValidationErrors(prev => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const validateForm = () => {
+    const errors = {};
+
+    // Name validation (first + last combined)
+    if (!formData.firstName.trim() && !formData.lastName.trim()) {
+      errors.firstName = 'Name is required';
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        errors.email = 'Please enter a valid email address';
+      }
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      errors.message = 'Please tell us about your business';
+    }
+
+    setValidationErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Reset states
+    setSubmitError('');
+    setSubmitSuccess(false);
+
+    // Honeypot check - if filled, it's a bot
+    if (formData.website) {
+      setSubmitError('Spam detected. Please try again.');
+      return;
+    }
+
+    // Terms validation
     if (!termsAccepted) {
       setShowTermsError(true);
       return;
     }
     setShowTermsError(false);
-    // Form submission logic here
+
+    // Form validation
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Prepare form data for Formspree
+      const submitData = new FormData();
+      submitData.append('name', `${formData.firstName} ${formData.lastName}`.trim());
+      submitData.append('company', formData.company);
+      submitData.append('email', formData.email);
+      submitData.append('phone', formData.phone);
+      submitData.append('companyType', formData.companyType);
+      submitData.append('message', formData.message);
+      // Formspree honeypot field
+      submitData.append('_gotcha', formData.website);
+
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: submitData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setSubmitSuccess(true);
+        // Clear form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          company: '',
+          email: '',
+          phone: '',
+          companyType: '',
+          message: '',
+          website: ''
+        });
+        setTermsAccepted(false);
+      } else {
+        const data = await response.json();
+        setSubmitError(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -116,17 +234,62 @@ export default function Partner() {
         </div>
 
         <div className="mt-8 md:mt-12 rounded-2xl md:rounded-3xl border border-ink/10 bg-white p-6 md:p-8 lg:p-12 shadow-card">
+          {/* Success Message */}
+          {submitSuccess && (
+            <div className="mb-6 rounded-xl bg-green-50 border border-green-200 p-4">
+              <div className="flex items-center gap-3">
+                <svg className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <p className="text-sm font-medium text-green-800">
+                  Thank you! Your message has been sent successfully. We'll be in touch soon.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Error Message */}
+          {submitError && (
+            <div className="mb-6 rounded-xl bg-red-50 border border-red-200 p-4">
+              <div className="flex items-center gap-3">
+                <svg className="h-5 w-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <p className="text-sm font-medium text-red-800">{submitError}</p>
+              </div>
+            </div>
+          )}
+
           <form className="space-y-6" onSubmit={handleSubmit}>
+            {/* Honeypot field - hidden from users, visible to bots */}
+            <input
+              type="text"
+              name="website"
+              value={formData.website}
+              onChange={handleInputChange}
+              style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, width: 0 }}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
+
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <label className="block text-sm font-semibold text-ink">
-                  First name
+                  First name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
-                  className="mt-2 w-full rounded-xl border border-ink/20 bg-mist px-4 py-3 text-sm focus:border-ocean focus:outline-none focus:ring-2 focus:ring-ocean/20"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  className={`mt-2 w-full rounded-xl border ${validationErrors.firstName ? 'border-red-400' : 'border-ink/20'} bg-mist px-4 py-3 text-sm focus:border-ocean focus:outline-none focus:ring-2 focus:ring-ocean/20`}
                   placeholder="John"
+                  disabled={isSubmitting}
                 />
+                {validationErrors.firstName && (
+                  <p className="mt-1 text-sm text-red-600">{validationErrors.firstName}</p>
+                )}
               </div>
               <div>
                 <label className="block text-sm font-semibold text-ink">
@@ -134,8 +297,12 @@ export default function Partner() {
                 </label>
                 <input
                   type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
                   className="mt-2 w-full rounded-xl border border-ink/20 bg-mist px-4 py-3 text-sm focus:border-ocean focus:outline-none focus:ring-2 focus:ring-ocean/20"
                   placeholder="Smith"
+                  disabled={isSubmitting}
                 />
               </div>
             </div>
@@ -146,20 +313,31 @@ export default function Partner() {
               </label>
               <input
                 type="text"
+                name="company"
+                value={formData.company}
+                onChange={handleInputChange}
                 className="mt-2 w-full rounded-xl border border-ink/20 bg-mist px-4 py-3 text-sm focus:border-ocean focus:outline-none focus:ring-2 focus:ring-ocean/20"
                 placeholder="Your Company Inc."
+                disabled={isSubmitting}
               />
             </div>
 
             <div>
               <label className="block text-sm font-semibold text-ink">
-                Email address
+                Email address <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
-                className="mt-2 w-full rounded-xl border border-ink/20 bg-mist px-4 py-3 text-sm focus:border-ocean focus:outline-none focus:ring-2 focus:ring-ocean/20"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                className={`mt-2 w-full rounded-xl border ${validationErrors.email ? 'border-red-400' : 'border-ink/20'} bg-mist px-4 py-3 text-sm focus:border-ocean focus:outline-none focus:ring-2 focus:ring-ocean/20`}
                 placeholder="john@company.com"
+                disabled={isSubmitting}
               />
+              {validationErrors.email && (
+                <p className="mt-1 text-sm text-red-600">{validationErrors.email}</p>
+              )}
             </div>
 
             <div>
@@ -168,8 +346,12 @@ export default function Partner() {
               </label>
               <input
                 type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
                 className="mt-2 w-full rounded-xl border border-ink/20 bg-mist px-4 py-3 text-sm focus:border-ocean focus:outline-none focus:ring-2 focus:ring-ocean/20"
                 placeholder="(555) 123-4567"
+                disabled={isSubmitting}
               />
             </div>
 
@@ -177,7 +359,13 @@ export default function Partner() {
               <label className="block text-sm font-semibold text-ink">
                 Company type
               </label>
-              <select className="mt-2 w-full rounded-xl border border-ink/20 bg-mist px-4 py-3 text-sm focus:border-ocean focus:outline-none focus:ring-2 focus:ring-ocean/20">
+              <select
+                name="companyType"
+                value={formData.companyType}
+                onChange={handleInputChange}
+                className="mt-2 w-full rounded-xl border border-ink/20 bg-mist px-4 py-3 text-sm focus:border-ocean focus:outline-none focus:ring-2 focus:ring-ocean/20"
+                disabled={isSubmitting}
+              >
                 <option value="">Select a type</option>
                 <option value="distributor">Distributor</option>
                 <option value="contractor">General Contractor</option>
@@ -189,13 +377,20 @@ export default function Partner() {
 
             <div>
               <label className="block text-sm font-semibold text-ink">
-                Tell us about your business
+                Tell us about your business <span className="text-red-500">*</span>
               </label>
               <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
                 rows="4"
-                className="mt-2 w-full rounded-xl border border-ink/20 bg-mist px-4 py-3 text-sm focus:border-ocean focus:outline-none focus:ring-2 focus:ring-ocean/20"
+                className={`mt-2 w-full rounded-xl border ${validationErrors.message ? 'border-red-400' : 'border-ink/20'} bg-mist px-4 py-3 text-sm focus:border-ocean focus:outline-none focus:ring-2 focus:ring-ocean/20`}
                 placeholder="Share details about your operations, service areas, and why you'd like to partner with WMC products..."
+                disabled={isSubmitting}
               />
+              {validationErrors.message && (
+                <p className="mt-1 text-sm text-red-600">{validationErrors.message}</p>
+              )}
             </div>
 
             <div>
@@ -209,10 +404,11 @@ export default function Partner() {
                     if (e.target.checked) setShowTermsError(false);
                   }}
                   className="mt-1 h-4 w-4 rounded border-ink/20 text-ocean focus:ring-ocean"
+                  disabled={isSubmitting}
                 />
                 <label htmlFor="terms" className="text-sm text-ink/70">
                   I agree to the terms and conditions and acknowledge that WMC products
-                  may contact me regarding partnership opportunities.
+                  may contact me regarding partnership opportunities. <span className="text-red-500">*</span>
                 </label>
               </div>
               {showTermsError && (
@@ -225,9 +421,16 @@ export default function Partner() {
             <div className="flex flex-wrap gap-4 pt-4">
               <button
                 type="submit"
-                className="rounded-full bg-ocean px-8 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-ocean/90"
+                disabled={isSubmitting}
+                className="rounded-full bg-ocean px-8 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-ocean/90 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
-                Submit application
+                {isSubmitting && (
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                )}
+                {isSubmitting ? 'Sending...' : 'Submit application'}
               </button>
               <Link
                 to="/"
