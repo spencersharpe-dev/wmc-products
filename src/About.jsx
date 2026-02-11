@@ -38,8 +38,9 @@ export default function About() {
             <Link to="/partner" className="rounded-full bg-ink px-4 md:px-5 py-2 text-sm md:text-base font-semibold text-white shadow-soft hover:bg-ink/90 transition">
               Contact Us
             </Link>
-            <a href="tel:714-923-1027" className="text-ink/70 hover:text-ink transition font-medium">
-              Have any questions? (714)-923-1027
+            <span className="text-ink/70 font-medium">Have any questions?</span>{' '}
+            <a href="tel:714-923-1027" className="text-ocean hover:text-ocean/80 transition font-medium">
+              (714)-923-1027
             </a>
           </div>
 
