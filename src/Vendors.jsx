@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 const navLinks = ["Home", "Vendors", "Products", "Locations", "About"];
 
@@ -184,11 +185,7 @@ export default function Vendors() {
         </div>
       </main>
 
-      <footer className="mt-16 border-t border-ink/10 bg-white py-8">
-        <div className="mx-auto max-w-6xl px-6 text-center text-sm text-ink/60">
-          <p>&copy; 2026 WMC products. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
       </div>
     </div>
   );

@@ -1,10 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 const navLinks = ["Home", "Vendors", "Products", "Locations", "About"];
 
 export default function Partner() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const [termsAccepted, setTermsAccepted] = React.useState(false);
+  const [showTermsError, setShowTermsError] = React.useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!termsAccepted) {
+      setShowTermsError(true);
+      return;
+    }
+    setShowTermsError(false);
+    // Form submission logic here
+  };
 
   return (
     <div className="min-h-screen bg-mist text-ink">
@@ -102,7 +115,7 @@ export default function Partner() {
         </div>
 
         <div className="mt-8 md:mt-12 rounded-2xl md:rounded-3xl border border-ink/10 bg-white p-6 md:p-8 lg:p-12 shadow-card">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <label className="block text-sm font-semibold text-ink">
@@ -184,16 +197,28 @@ export default function Partner() {
               />
             </div>
 
-            <div className="flex items-start gap-3">
-              <input
-                type="checkbox"
-                id="terms"
-                className="mt-1 h-4 w-4 rounded border-ink/20 text-ocean focus:ring-ocean"
-              />
-              <label htmlFor="terms" className="text-sm text-ink/70">
-                I agree to the terms and conditions and acknowledge that WMC products
-                may contact me regarding partnership opportunities.
-              </label>
+            <div>
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  checked={termsAccepted}
+                  onChange={(e) => {
+                    setTermsAccepted(e.target.checked);
+                    if (e.target.checked) setShowTermsError(false);
+                  }}
+                  className="mt-1 h-4 w-4 rounded border-ink/20 text-ocean focus:ring-ocean"
+                />
+                <label htmlFor="terms" className="text-sm text-ink/70">
+                  I agree to the terms and conditions and acknowledge that WMC products
+                  may contact me regarding partnership opportunities.
+                </label>
+              </div>
+              {showTermsError && (
+                <p className="mt-2 text-sm text-red-600">
+                  You must agree to the terms and conditions to submit.
+                </p>
+              )}
             </div>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -229,11 +254,7 @@ export default function Partner() {
         </div>
       </main>
 
-      <footer className="mt-16 border-t border-ink/10 bg-white py-8">
-        <div className="mx-auto max-w-6xl px-6 text-center text-sm text-ink/60">
-          <p>&copy; 2026 WMC products. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 const navLinks = ["Home", "Vendors", "Products", "Locations", "About"];
 
@@ -12,6 +13,33 @@ const locationsData = [
     phone: "(714) 923-1027",
     description: "Headquarters - Serving all of Southern, Central, and Northern California",
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=1518+North+Endeavor+Lane+Unit+A+Anaheim+CA+92801"
+  },
+  {
+    id: 2,
+    name: "Location 2",
+    address: "Address Line 1",
+    city: "City, State ZIP",
+    phone: "(000) 000-0000",
+    description: "Description for location 2",
+    mapsUrl: ""
+  },
+  {
+    id: 3,
+    name: "Location 3",
+    address: "Address Line 1",
+    city: "City, State ZIP",
+    phone: "(000) 000-0000",
+    description: "Description for location 3",
+    mapsUrl: ""
+  },
+  {
+    id: 4,
+    name: "Location 4",
+    address: "Address Line 1",
+    city: "City, State ZIP",
+    phone: "(000) 000-0000",
+    description: "Description for location 4",
+    mapsUrl: ""
   }
 ];
 
@@ -105,11 +133,11 @@ export default function Locations() {
         </div>
 
         {/* Locations Grid */}
-        <div className="flex justify-center">
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
           {locationsData.map((location) => (
             <div
               key={location.id}
-              className="rounded-2xl border border-ink/10 bg-white p-6 md:p-8 shadow-card hover:shadow-lg transition-shadow max-w-md w-full"
+              className="rounded-2xl border border-ink/10 bg-white p-6 md:p-8 shadow-card hover:shadow-lg transition-shadow"
             >
               <h3 className="text-xl md:text-2xl font-semibold text-ink mb-3">{location.name}</h3>
               <p className="text-ink/70 mb-4">{location.description}</p>
@@ -135,16 +163,8 @@ export default function Locations() {
           ))}
         </div>
 
-        {/* Map Section Placeholder */}
-        <div className="mt-12 rounded-2xl border border-ink/10 bg-white p-6 md:p-8 shadow-card">
-          <h2 className="text-2xl md:text-3xl font-semibold text-ink mb-4 text-center">Service Area</h2>
-          <div className="bg-ink/5 rounded-xl h-64 md:h-96 flex items-center justify-center">
-            <p className="text-ink/50 text-lg">Map coming soon</p>
-          </div>
-        </div>
-
         {/* CTA Section */}
-        <div className="mt-12 text-center">
+        <div className="mt-20 text-center">
           <h2 className="text-2xl md:text-3xl font-semibold text-ink mb-4">Need Help Finding Us?</h2>
           <p className="text-base md:text-lg text-ink/70 mb-6 max-w-2xl mx-auto">
             Contact us today and our team will help you find the nearest location to serve your waterproofing needs.
@@ -158,11 +178,7 @@ export default function Locations() {
         </div>
       </main>
 
-      <footer className="mt-16 border-t border-ink/10 bg-white py-8">
-        <div className="mx-auto max-w-6xl px-6 text-center text-sm text-ink/60">
-          <p>&copy; 2026 WMC products. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
       </div>
     </div>
   );
