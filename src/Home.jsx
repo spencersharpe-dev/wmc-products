@@ -5,19 +5,19 @@ const navLinks = ["Platform", "Locations", "Vendors", "Products", "About"];
 
 const solutionCards = [
   {
-    title: "Smart procurement",
-    body: "Consolidate SKUs, pricing, and service tiers into a single, adaptive workflow.",
+    title: "Waterproofing",
+    body: "Eliminating leaks and structural water damage with high-quality waterproofing solutions you can rely on.",
     tone: "bg-surf"
   },
   {
-    title: "Jobsite intelligence",
-    body: "Track spend, delivery windows, and crew preferences with live data feeds.",
+    title: "Concrete Restoration",
+    body: "Protect and restore concrete structures with durable solutions engineered for strength and longevity.",
     tone: "bg-tide"
   },
   {
     title: "Vendor performance",
     body: "Scorecard suppliers with visibility across fulfillment, quality, and returns.",
-    tone: "bg-white"
+    tone: "bg-surf"
   }
 ];
 
@@ -196,7 +196,8 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="mx-auto max-w-6xl px-6 py-16">
+      <section className="relative bg-gradient-to-b from-[#f0f4f8] to-mist">
+        <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/60">
@@ -221,11 +222,9 @@ export default function Home() {
               </div>
               <h3 className="mt-6 text-xl font-semibold">{card.title}</h3>
               <p className="mt-3 text-ink/70">{card.body}</p>
-              <button className="mt-6 text-sm font-semibold text-ocean">
-                Learn more →
-              </button>
             </div>
           ))}
+        </div>
         </div>
       </section>
 
