@@ -7,7 +7,7 @@ const navLinks = ["Home", "Vendors", "Locations", "About"];
 const solutionCards = [
   {
     title: "WATERPROOFING",
-    body: "Eliminating leaks and structural water damage with high-quality waterproofing solutions you can rely on.",
+    body: "High performance waterproofing systems designed for large-scale, high-traffic, or mission critical buildings including Hospitality, Educational, Government, Industrial, Commercial and Residential projects.",
     tone: "bg-surf"
   },
   {
@@ -19,6 +19,11 @@ const solutionCards = [
     title: "ROOF COATINGS",
     body: "High-performance silicone and elastomeric roof coating systems designed to protect, seal, extend and restore aging roofing systems for commercial roofing.",
     tone: "bg-surf"
+  },
+  {
+    title: "INJECTION GROUTS",
+    body: "Flowable materials that are pumped (injected) into cracks, voids, joints, or soil to seal, stabilize, waterproof, or strengthen structures.",
+    tone: "bg-tide"
   }
 ];
 
@@ -55,26 +60,58 @@ const capabilityCards = [
   }
 ];
 
-const newsItems = [
+const vendorItems = [
   {
-    title: "WMC products expands West Coast network",
-    date: "January 22, 2026",
-    tag: "News"
+    title: "Koster Waterproofing Systems",
+    image: "/Koster_product_image.png"
   },
   {
-    title: "How contractors are rethinking inventory",
-    date: "January 12, 2026",
-    tag: "Insights"
+    title: "AmeriPolish",
+    image: "/ameripolish_vendor_image_new.JPG"
   },
   {
-    title: "New digital jobsite toolkit launches",
-    date: "December 18, 2025",
-    tag: "Release"
+    title: "ASC Coatings",
+    image: "/asc_vendor_image.png"
+  },
+  {
+    title: "Evonik",
+    image: "/evonik_vendor_image.jpg"
+  },
+  {
+    title: "RM Lucas",
+    image: "/lucas_vendor_image.png"
+  },
+  {
+    title: "Manta",
+    image: "/manta_vendor_image.png"
+  },
+  {
+    title: "Neptune Coatings",
+    image: "/neptune_vendor_image.jpg"
+  },
+  {
+    title: "SET",
+    image: "/set_vendor_image.jpg"
+  },
+  {
+    title: "Wetsuit",
+    image: "/wetsuit_vendor_image.jpg"
   }
 ];
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+  const vendorCarouselRef = React.useRef(null);
+
+  const scrollVendors = (direction) => {
+    const container = vendorCarouselRef.current;
+    if (!container) return;
+    const scrollAmount = Math.min(container.clientWidth, 420);
+    container.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth"
+    });
+  };
 
   return (
     <div className="min-h-screen bg-mist text-ink">
@@ -206,26 +243,19 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/60">
+            <p className="text-base font-semibold uppercase tracking-[0.2em] text-ink/60">
               What we solve
             </p>
             <h2 className="mt-4 text-3xl font-semibold">Integrated services for every jobsite.</h2>
           </div>
-          <p className="max-w-xl text-ink/60">
-            Replace fragmented buying with one connected ecosystem. We help teams source
-            smarter, deliver faster, and stay aligned across every phase of the project.
-          </p>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {solutionCards.map((card) => (
             <div
               key={card.title}
               className={`rounded-3xl border border-white/70 p-6 shadow-card ${card.tone}`}
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-ink text-white">
-                <span className="text-lg font-semibold">WMC</span>
-              </div>
               <h3 className="mt-6 text-xl font-semibold">{card.title}</h3>
               <p className="mt-3 text-ink/70">{card.body}</p>
             </div>
@@ -234,179 +264,25 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 md:grid-cols-[1fr_1.1fr] md:items-center">
+      <section className="relative bg-white">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/construction-site-home-page.png')" }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-white/55" aria-hidden="true" />
+        <div className="relative mx-auto max-w-6xl px-6 py-16">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/60">
-              The WMC Method
+            <p className="text-lg font-semibold uppercase tracking-[0.2em] text-ink/60">
+              About Us
             </p>
-            <h2 className="mt-4 text-3xl font-semibold">A smarter supply chain stack.</h2>
-            <p className="mt-4 text-ink/70">
-              Bring data, purchasing, and fulfillment into a single view. We combine
-              distribution know-how with intelligent software so teams can focus on
-              building, not chasing materials.
-            </p>
-            <div className="mt-8 space-y-6">
-              {advantageItems.map((item) => (
-                <div key={item.title} className="flex gap-4">
-                  <div className="mt-1 h-3 w-3 rounded-full bg-pine" />
-                  <div>
-                    <h3 className="text-lg font-semibold">{item.title}</h3>
-                    <p className="text-ink/60">{item.body}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <h2 className="mt-4 text-center text-4xl font-semibold">
+              Over 40 Years of Industry Experience
+            </h2>
           </div>
-          <div className="grid gap-6">
-            {capabilityCards.map((capability) => (
-              <div
-                key={capability.title}
-                className="rounded-3xl border border-ink/10 bg-mist p-6 shadow-card"
-              >
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">
-                  {capability.badge}
-                </p>
-                <h3 className="mt-4 text-xl font-semibold">{capability.title}</h3>
-                <p className="mt-3 text-ink/60">{capability.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
-          <div className="rounded-3xl bg-gradient-to-br from-ink to-ink/80 p-8 text-white shadow-soft">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/60">
-              Field enablement
-            </p>
-            <h2 className="mt-4 text-3xl font-semibold">A mobile command center.</h2>
-            <p className="mt-4 text-white/70">
-              Give crews a single app for ordering, approvals, live ETA tracking, and
-              onsite documentation.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <button className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink">
-                App Store
-              </button>
-              <button className="rounded-full border border-white/40 px-5 py-3 text-sm font-semibold">
-                Google Play
-              </button>
-            </div>
-          </div>
-          <div className="relative">
-            <img
-              className="h-[360px] w-full rounded-3xl object-cover shadow-soft"
-              src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80"
-              alt="Engineer reviewing plans"
-            />
-            <div className="absolute bottom-6 left-6 rounded-2xl bg-white/90 px-4 py-3 text-xs shadow-card">
-              <p className="font-semibold">Live tracking</p>
-              <p className="text-ink/60">Real-time ETAs with crew alerts.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-surf">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/60">
-                Network reach
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold">Built with the best in the business.</h2>
-            </div>
-            <button className="rounded-full border border-ink/20 bg-white px-6 py-3 text-sm font-semibold">
-              Explore the network
-            </button>
-          </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-            {["Atlas Supply", "Ironline", "Northbridge", "Crest Industrial", "Summit Steel", "Junction", "Everlow", "ForgeWorks"].map(
-              (brand) => (
-                <div
-                  key={brand}
-                  className="rounded-2xl bg-white/70 px-5 py-4 text-center text-sm font-semibold shadow-card"
-                >
-                  {brand}
-                </div>
-              )
-            )}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="grid gap-10 md:grid-cols-[1fr_1fr]">
-          <div className="rounded-3xl border border-ink/10 bg-white p-8 shadow-card">
-            <h3 className="text-2xl font-semibold">Ready to streamline materials?</h3>
-            <p className="mt-3 text-ink/70">
-              Join our partner network and bring visibility to every phase of the build.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <button className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white">
-                Get started
-              </button>
-              <button className="rounded-full border border-ink/20 px-6 py-3 text-sm font-semibold">
-                Talk to sales
-              </button>
-            </div>
-          </div>
-          <div className="rounded-3xl bg-gradient-to-br from-pine to-ocean p-8 text-white shadow-soft">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">
-              Impact
-            </p>
-            <h3 className="mt-4 text-2xl font-semibold">Reduce waste. Increase speed.</h3>
-            <p className="mt-3 text-white/70">
-              Data-driven delivery planning cuts idle time by 24% and improves crew
-              productivity.
-            </p>
-            <div className="mt-8 flex gap-6">
-              <div>
-                <p className="text-2xl font-semibold">24%</p>
-                <p className="text-sm text-white/70">Less idle time</p>
-              </div>
-              <div>
-                <p className="text-2xl font-semibold">18%</p>
-                <p className="text-sm text-white/70">Fewer returns</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/60">
-                Careers
-              </p>
-              <h2 className="mt-4 text-3xl font-semibold">Build with a team that cares.</h2>
-              <p className="mt-3 max-w-xl text-ink/70">
-                We are hiring across operations, engineering, and field enablement.
-              </p>
-            </div>
-            <button className="rounded-full bg-ocean px-6 py-3 text-sm font-semibold text-white">
-              View openings
-            </button>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[
-              { label: "Teams", value: "12" },
-              { label: "Locations", value: "28" },
-              { label: "Growth", value: "+42%" }
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-3xl border border-ink/10 bg-mist p-6 text-center shadow-card"
-              >
-                <p className="text-3xl font-semibold">{stat.value}</p>
-                <p className="text-sm text-ink/60">{stat.label}</p>
-              </div>
-            ))}
-          </div>
+          <p className="mt-6 mx-auto max-w-5xl text-center text-4xl font-medium text-ink">
+            WMC Products is a leading supplier of waterproofing, concrete restoration, and protective coating systems serving California, Arizona, and Nevada. With over 40 years of industry experience, we provide contractors, consultants, and design professionals with high-performance products engineered to protect structures from water intrusion and long-term deterioration.
+          </p>
         </div>
       </section>
 
@@ -414,26 +290,54 @@ export default function Home() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ink/60">
-              Latest updates
+              OUR VENDORS
             </p>
-            <h2 className="mt-4 text-3xl font-semibold">News from the network.</h2>
+            <h2 className="mt-4 text-3xl font-semibold">Our trusted vendors</h2>
           </div>
-          <button className="rounded-full border border-ink/20 px-6 py-3 text-sm font-semibold">
-            Visit newsroom
-          </button>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              to="/vendors"
+              className="rounded-full border border-ink/20 px-6 py-3 text-sm font-semibold text-center"
+            >
+              View our Vendors
+            </Link>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => scrollVendors("left")}
+                className="rounded-full border border-ink/20 px-4 py-2 text-sm font-semibold"
+                aria-label="Scroll vendors left"
+              >
+                ←
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollVendors("right")}
+                className="rounded-full border border-ink/20 px-4 py-2 text-sm font-semibold"
+                aria-label="Scroll vendors right"
+              >
+                →
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {newsItems.map((item) => (
+        <div
+          ref={vendorCarouselRef}
+          className="mt-10 flex gap-6 overflow-x-auto pb-2 scroll-smooth snap-x snap-mandatory"
+        >
+          {vendorItems.map((item) => (
             <div
               key={item.title}
-              className="rounded-3xl border border-ink/10 bg-white p-6 shadow-card"
+              className="min-w-[260px] max-w-[260px] md:min-w-[300px] md:max-w-[300px] snap-start rounded-3xl border border-ink/10 bg-white p-6 shadow-card"
             >
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">
-                {item.tag}
-              </p>
-              <h3 className="mt-4 text-xl font-semibold">{item.title}</h3>
-              <p className="mt-4 text-sm text-ink/60">{item.date}</p>
-              <button className="mt-6 text-sm font-semibold text-ocean">Read more →</button>
+              <div className="flex h-40 items-center justify-center">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="max-h-full w-full object-contain"
+                />
+              </div>
+              <h3 className="mt-4 text-center text-lg font-semibold">{item.title}</h3>
             </div>
           ))}
         </div>

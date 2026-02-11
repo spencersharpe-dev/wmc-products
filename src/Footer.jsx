@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-[1.2fr_1fr_1fr] justify-center">
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-lg font-semibold">
-            <span className="rounded-full bg-white px-3 py-1 font-display text-base tracking-widest text-ink">
+            <span className="rounded-full bg-white px-3 py-1 font-display text-base tracking-widest text-ocean">
               WMC
             </span>
             <span>products</span>
