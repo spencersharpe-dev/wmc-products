@@ -7,9 +7,10 @@ const navLinks = ["Home", "Vendors", "Products", "Locations", "About"];
 const productsData = [
   {
     id: 1,
-    name: "Heavy Duty Work Gloves",
-    description: "Durable leather gloves with reinforced palms for maximum protection",
-    image: "https://via.placeholder.com/300x300/1a1a1a/ffffff?text=Work+Gloves"
+    name: "View all Koster products",
+    description: "Take a look at all Koster has to offer",
+    image: "/Koster_product_image.png",
+    url: "https://www.kosterusa.com/us_en/m-137/products+a+to+z.html"
   },
   {
     id: 2,
@@ -197,20 +198,38 @@ export default function Products() {
 
         {/* Products Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {currentProducts.map((product) => (
-            <div
-              key={product.id}
-              className="rounded-2xl border border-ink/10 bg-white p-6 shadow-card hover:shadow-lg transition-shadow"
-            >
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-48 object-cover rounded-xl mb-4 bg-ink/5"
-              />
-              <h3 className="text-xl font-semibold text-ink mb-2">{product.name}</h3>
-              <p className="text-sm text-ink/70">{product.description}</p>
-            </div>
-          ))}
+          {currentProducts.map((product) => {
+            const CardContent = (
+              <>
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-48 object-contain rounded-xl mb-4 bg-ink/5"
+                />
+                <h3 className="text-xl font-semibold text-ink mb-2">{product.name}</h3>
+                <p className="text-sm text-ink/70">{product.description}</p>
+              </>
+            );
+
+            return product.url ? (
+              <a
+                key={product.id}
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl border border-ink/10 bg-white p-6 shadow-card hover:shadow-lg transition-shadow cursor-pointer"
+              >
+                {CardContent}
+              </a>
+            ) : (
+              <div
+                key={product.id}
+                className="rounded-2xl border border-ink/10 bg-white p-6 shadow-card hover:shadow-lg transition-shadow"
+              >
+                {CardContent}
+              </div>
+            );
+          })}
         </div>
 
         {/* Pagination Controls */}
