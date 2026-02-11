@@ -16,30 +16,30 @@ const locationsData = [
   },
   {
     id: 2,
-    name: "Phoenix",
-    address: "Address Line 1",
-    city: "City, State ZIP",
-    phone: "(602)-282-0310",
-    description: "Got this info from old site",
-    mapsUrl: ""
+    name: "Northern California",
+    address: "23285 Eichler St. Suite C",
+    city: "Hayward, CA 94545",
+    phone: "(714) 923-1027",
+    description: "Stocking Warehouse",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=23285+Eichler+St+Suite+C+Hayward+CA+94545"
   },
   {
     id: 3,
-    name: "San Diego",
-    address: "Address Line 1",
-    city: "City, State ZIP",
-    phone: "(619)-784-3108",
-    description: "Got this info from old site",
-    mapsUrl: ""
+    name: "San Diego/ Poway",
+    address: "13651 Danielson St. Suite F",
+    city: "Poway, CA 92064",
+    phone: "(714) 923-1027",
+    description: "Stocking Warehouse",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=13651+Danielson+St+Suite+F+Poway+CA+92064"
   },
   {
     id: 4,
-    name: "Location 4",
-    address: "Address Line 1",
-    city: "City, State ZIP",
-    phone: "(000) 000-0000",
-    description: "Description for location 4",
-    mapsUrl: ""
+    name: "Arizona/ Phoenix",
+    address: "1250 E. Hadley St. Suite 1",
+    city: "Phoenix, AZ 85034",
+    phone: "(602)-282-0310",
+    description: "Stocking Warehouse",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=1250+E+Hadley+St+Suite+1+Phoenix+AZ+85034"
   }
 ];
 
