@@ -90,7 +90,7 @@ export default function About() {
             About WMC products
           </h1>
           <p className="mt-4 text-base md:text-lg text-ink/70 max-w-3xl mx-auto">
-            Building the future of construction supply chains, one jobsite at a time.
+            Protecting structures from the ground up with proven waterproofing and concrete protection solutions.
           </p>
         </div>
 
@@ -110,18 +110,8 @@ export default function About() {
           {/* Story Section */}
           <div className="rounded-2xl md:rounded-3xl border border-ink/10 bg-white p-6 md:p-8 lg:p-12 shadow-card">
             <h2 className="text-2xl md:text-3xl font-semibold text-ink mb-4">Our Story</h2>
-            <p className="text-base md:text-lg text-ink/70 leading-relaxed mb-4">
-              Founded in 2018, WMC products began when three construction veterans recognized a
-              critical gap in the industry: the lack of a centralized, efficient system for sourcing
-              and delivering construction materials. After years of experiencing firsthand the
-              frustrations of delayed shipments, inconsistent quality, and unclear communication,
-              they set out to build a better solution.
-            </p>
             <p className="text-base md:text-lg text-ink/70 leading-relaxed">
-              Today, we serve over 38,000 partners across North America, processing 9.6 million
-              orders annually through our network of 240+ distribution centers. Our technology-driven
-              approach combines real-time inventory tracking, predictive analytics, and streamlined
-              logistics to ensure materials arrive exactly when and where they're needed.
+              Water Mitigation Concepts is the leader in California, Arizona and Nevada for Koster American, RM Lucas Co, AmeriPolish Coatings, Neptune Coatings, American Standard Coatings, Evonik Industries and Surface Engineered Technologies. The company's expertise in water vapor mitigation products, injection grouts, self-leveling, below grade, between slab waterproofing, urethane pedestrian and traffic decking coatings and silicone roofing systems is unsurpassed. The WMC team of professionals is dedicated to quality service with the upmost integrity. With over 40 years of experience in the industry, WMC understands the needs and concerns of any individual working on both small and large scaled projects.
             </p>
           </div>
 
@@ -160,21 +150,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Impact Section */}
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="rounded-2xl border border-ink/10 bg-gradient-to-br from-ocean/10 to-ocean/5 p-6 text-center shadow-card">
-              <p className="text-3xl md:text-4xl font-semibold text-ink">$2.4B</p>
-              <p className="mt-2 text-sm md:text-base text-ink/60">Annual materials processed</p>
-            </div>
-            <div className="rounded-2xl border border-ink/10 bg-gradient-to-br from-ocean/10 to-ocean/5 p-6 text-center shadow-card">
-              <p className="text-3xl md:text-4xl font-semibold text-ink">99.2%</p>
-              <p className="mt-2 text-sm md:text-base text-ink/60">On-time delivery rate</p>
-            </div>
-            <div className="rounded-2xl border border-ink/10 bg-gradient-to-br from-ocean/10 to-ocean/5 p-6 text-center shadow-card">
-              <p className="text-3xl md:text-4xl font-semibold text-ink">850+</p>
-              <p className="mt-2 text-sm md:text-base text-ink/60">Team members nationwide</p>
-            </div>
-          </div>
         </div>
 
         {/* CTA Section */}
