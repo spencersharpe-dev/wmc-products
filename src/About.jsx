@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const navLinks = ["Platform", "Locations", "Vendors", "Products", "About"];
+const navLinks = ["Platform", "Vendors", "Products", "Locations", "About"];
 
 export default function About() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
