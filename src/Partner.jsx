@@ -52,7 +52,7 @@ export default function Partner() {
             </Link>
             <span className="text-ink/70 font-medium">Have any questions?</span>{' '}
             <a href="tel:714-923-1027" className="text-ocean hover:text-ocean/80 transition font-medium">
-              (714)-923-1027
+              (714) 923-1027
             </a>
           </div>
 
@@ -86,7 +86,7 @@ export default function Partner() {
                 href="tel:714-923-1027"
                 className="block w-full text-left px-4 py-3 text-ink font-medium hover:bg-ink/5 rounded-lg transition"
               >
-                Have any questions? (714)-923-1027
+                Have any questions? (714) 923-1027
               </a>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function Partner() {
           <p className="mt-2 text-base md:text-lg text-ink/70">
             Feel free to give us a call at{' '}
             <a href="tel:714-923-1027" className="text-ocean hover:text-ocean/80 font-medium transition">
-              (714)-923-1027
+              (714) 923-1027
             </a>
           </p>
         </div>
