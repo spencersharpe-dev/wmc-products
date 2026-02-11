@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
 
-const navLinks = ["Home", "Vendors", "Products", "Locations", "About"];
+const navLinks = ["Home", "Vendors", "Locations", "About"];
 
 export default function About() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);

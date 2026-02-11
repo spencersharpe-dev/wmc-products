@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-ink/10 bg-ink text-white">
+    <footer className="border-t border-ocean/10 bg-ocean text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-[1.2fr_1fr_1fr] justify-center">
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-lg font-semibold">
@@ -20,11 +20,10 @@ export default function Footer() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/60 underline">
             Company
           </p>
-          <ul className="mt-4 grid grid-cols-2 gap-x-3 gap-y-2 text-sm text-white/70 justify-center">
+          <ul className="mt-4 flex flex-col items-center gap-2 text-sm text-white/70">
             <li><Link to="/vendors" className="hover:text-white transition">Vendors</Link></li>
-            <li><Link to="/locations" className="hover:text-white transition">Locations</Link></li>
-            <li><Link to="/products" className="hover:text-white transition">Products</Link></li>
             <li><Link to="/about" className="hover:text-white transition">About</Link></li>
+            <li><Link to="/locations" className="hover:text-white transition">Locations</Link></li>
           </ul>
         </div>
         <div className="text-center">
