@@ -13,7 +13,7 @@ export default function Footer() {
             <span>products</span>
           </div>
           <p className="mt-4 text-sm text-white/70">
-            Concrete & waterproofing building envelope specialist
+            Concrete & Waterproofing Building Envelope Specialists
           </p>
         </div>
         <div className="text-center">
@@ -30,7 +30,6 @@ export default function Footer() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/60 underline">
             Get in touch
           </p>
-          <p className="mt-4 text-sm text-white/70">hello@wmcproducts.com</p>
           <Link to="/partner" className="mt-4 inline-block rounded-full bg-white px-5 py-2 text-sm font-semibold text-ink hover:bg-white/90 transition">
             Contact sales
           </Link>
