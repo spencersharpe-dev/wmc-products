@@ -93,6 +93,13 @@ test.describe('Admin Route Protection', () => {
     await expect(page).toHaveURL('/admin/login');
   });
 
+  test('should redirect to login when accessing /admin/submissions without auth', async ({ page }) => {
+    await page.goto('/admin/submissions');
+
+    // Should redirect to login page
+    await expect(page).toHaveURL('/admin/login');
+  });
+
   test('should show loading spinner initially on protected route', async ({ page }) => {
     // This test checks that the loading state appears before redirect
     await page.goto('/admin');
@@ -100,6 +107,20 @@ test.describe('Admin Route Protection', () => {
     // Either shows loading spinner or redirects to login
     const loginHeading = page.getByRole('heading', { name: 'Admin Login' });
     await expect(loginHeading).toBeVisible({ timeout: 5000 });
+  });
+});
+
+test.describe('Admin Home Page (unauthenticated access)', () => {
+  test('should redirect /admin to login', async ({ page }) => {
+    await page.goto('/admin');
+    await expect(page).toHaveURL('/admin/login');
+  });
+});
+
+test.describe('Admin Submissions Page (unauthenticated access)', () => {
+  test('should redirect /admin/submissions to login', async ({ page }) => {
+    await page.goto('/admin/submissions');
+    await expect(page).toHaveURL('/admin/login');
   });
 });
 

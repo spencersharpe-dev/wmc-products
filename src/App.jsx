@@ -8,6 +8,7 @@ import About from './About';
 import Vendors from './Vendors';
 import Locations from './Locations';
 import AdminLogin from './admin/AdminLogin';
+import AdminHome from './admin/AdminHome';
 import SubmissionsList from './admin/SubmissionsList';
 
 function ScrollToTop() {
@@ -37,6 +38,14 @@ export default function App() {
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route
             path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminHome />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/submissions"
             element={
               <ProtectedRoute>
                 <SubmissionsList />

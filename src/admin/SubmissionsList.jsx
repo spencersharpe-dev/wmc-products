@@ -75,11 +75,18 @@ export default function SubmissionsList() {
       {/* Header */}
       <header className="bg-white border-b border-ink/10 px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link to="/">
-              <img src="/nav-bar-image.jpg" alt="WMC" className="h-10" />
+          <div className="flex items-center gap-6">
+            <Link to="/admin">
+              <img src="/logo_clean_magic (1).png" alt="WMC" className="h-10" />
             </Link>
-            <span className="text-lg font-semibold text-ink">Admin Dashboard</span>
+            <nav className="hidden md:flex items-center gap-6">
+              <Link
+                to="/admin/submissions"
+                className="text-sm font-semibold text-ink"
+              >
+                Form Submissions
+              </Link>
+            </nav>
           </div>
           <button
             onClick={() => signOut()}
