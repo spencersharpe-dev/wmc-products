@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
+import { createSubmission } from './services/submissionsService';
 
 const navLinks = ["Home", "Vendors", "Locations", "About"];
 
@@ -104,15 +105,31 @@ export default function Partner() {
       // Formspree honeypot field
       submitData.append('_gotcha', formData.website);
 
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        body: submitData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
+      // Prepare data for Supabase
+      const supabaseData = {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        company: formData.company,
+        email: formData.email,
+        phone: formData.phone,
+        company_type: formData.companyType,
+        message: formData.message
+      };
 
-      if (response.ok) {
+      // Submit to both Formspree and Supabase in parallel
+      const [formspreeResult, supabaseResult] = await Promise.allSettled([
+        fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          body: submitData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }),
+        createSubmission(supabaseData)
+      ]);
+
+      // Check Formspree result (primary for user notification)
+      if (formspreeResult.status === 'fulfilled' && formspreeResult.value.ok) {
         setSubmitSuccess(true);
         // Clear form
         setFormData({
@@ -127,8 +144,15 @@ export default function Partner() {
         });
         setTermsAccepted(false);
       } else {
-        const data = await response.json();
-        setSubmitError(data.error || 'Something went wrong. Please try again.');
+        const errorMsg = formspreeResult.status === 'rejected'
+          ? 'Network error. Please check your connection.'
+          : 'Something went wrong. Please try again.';
+        setSubmitError(errorMsg);
+      }
+
+      // Log Supabase failures for debugging (don't show to user)
+      if (supabaseResult.status === 'rejected') {
+        console.error('Supabase submission failed:', supabaseResult.reason);
       }
     } catch (error) {
       setSubmitError('Network error. Please check your connection and try again.');
